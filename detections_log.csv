@@ -1,0 +1,4 @@
+Time,Animal,Confidence,Image
+2026-03-08 10-19-15,dog,0.9497488141059875,detections/dog_0.jpg
+2026-03-08 10-20-49,cat,0.8977870345115662,detections/cat_0.jpg
+2026-03-08 10-22-47,cow,0.9591581225395203,detections/cow_0.jpg
