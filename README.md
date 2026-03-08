@@ -1,5 +1,5 @@
 BeastSense
-AI-Powered Animal and Bird Detection & Tracking Platform
+An AI-Powered Animal and Bird Detection & Tracking Platform
 
 BeastSense is a modern AI-powered wildlife monitoring platform designed to detect and track animals and birds in real time using computer vision and deep learning. The system uses an intelligent object detection model to identify multiple animal species through a webcam feed and provide instant visual alerts and detection logs.
 
