@@ -9,7 +9,6 @@ from datetime import datetime
 from collections import defaultdict
 from ultralytics import YOLO
 
-# ----- Setup -----
 pygame.mixer.init()
 alert_sound = "beep.mp3"
 model = YOLO("yolov8m.pt")
@@ -17,8 +16,7 @@ model = YOLO("yolov8m.pt")
 CONFIDENCE_THRESHOLD = 0.3
 
 ANIMALS_TO_TRACK = [
-"bird","cat","dog","horse","sheep",
-"cow","elephant","bear","zebra","giraffe"
+"bird","cat","dog","horse","sheep","cow","elephant","bear","zebra","giraffe"
 ]
 
 os.makedirs("detections", exist_ok=True)
@@ -30,7 +28,6 @@ if not os.path.exists(LOG_FILE):
         columns=["Time","Animal","Confidence","Image"]
     ).to_csv(LOG_FILE,index=False)
 
-# ----- Auth Utils -----
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
@@ -66,8 +63,6 @@ def save_user(username,password):
 
     return True
 
-
-# ----- Session State Init -----
 if "authenticated" not in st.session_state:
     st.session_state.authenticated=False
 
@@ -77,8 +72,6 @@ if "username" not in st.session_state:
 if "running" not in st.session_state:
     st.session_state.running=False
 
-
-# ----- Login Page -----
 def login_page():
 
     st.markdown("""
@@ -94,7 +87,7 @@ def login_page():
     font-size:20px;
     color:#6b7280;
     margin-bottom:30px;'>
-    An AI-Powered Animal and Bird Detection & Tracking Platform
+    An AI-Powered Animal Detection and Tracking Platform
     </p>
     """, unsafe_allow_html=True)
 
@@ -143,8 +136,6 @@ def login_page():
 
                 st.warning("Username already exists.")
 
-
-# ----- Main App -----
 def main_app():
 
     st.sidebar.success(
@@ -172,7 +163,7 @@ def main_app():
     font-size:22px;
     color:#374151;
     margin-top:5px;'>
-    An AI-Powered Animal and Bird Detection & Tracking Platform
+    An AI-Powered Animal Detection and Tracking Platform
     </p>
     """, unsafe_allow_html=True)
 
@@ -190,14 +181,13 @@ def main_app():
 
     enable_alerts = st.sidebar.checkbox(
         "🔔 Enable Sound Alerts",
-        value=True
+        value=True 
     )
 
     tab = st.sidebar.radio(
         "🧭 Navigation",
         ["Live Detection","Logs"]
     )
-
 
     if tab=="Live Detection":
 
@@ -395,7 +385,6 @@ def main_app():
             )
 
 
-# ----- Run App -----
 if st.session_state.authenticated:
     main_app()
 else:
